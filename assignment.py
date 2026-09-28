@@ -51,7 +51,26 @@ def take_inputs(expense_list):
             break
 
 # #validate the list 
+def validate_list(expense_list):
 # # for loop to iterate thr list
+    large_expenses = []
+    medium_expenses = []
+    small_expenses = []
+    valid_expenses = []
+    for expense in expense_list:
+        if expense < 0:
+            print(f'{expense} is invalid, no negative numbers')
+        else:
+            valid_expenses.append(expense)
+            if expense > 100:
+                large_expenses.append(expense)
+            if expense > 25:
+                medium_expenses.append(expense)
+            else:
+                small_expenses.append(expense)
+    return large_expenses, medium_expenses, small_expenses, valid_expenses
+
+
 # check for negative numbers, if negative print error message and remove from list
 # simmultaneously categorize the list into small, moderate, and large expenses
 
@@ -67,11 +86,14 @@ def take_inputs(expense_list):
 
 
 if __name__ == "__main__":
-#     #take inputs and create the list
+#take inputs and create the list
     expense_list = []
     take_inputs(expense_list)
-    print(expense_list)
-#     #Validate the list
+
+#Validate the list
+    large_expenses, medium_expenses, small_expenses = validate_list(expense_list)
+    print (expense_list, large_expenses, medium_expenses, small_expenses)
+    
 
 #     # categorize list
 
