@@ -38,10 +38,17 @@ Sample Run:
     Large expenses: 1
 """
 
-# # take inputs
-def take_inputs():
-# #  while loop, if input == 0 end
-# # append every input to a list
+
+def take_inputs(expense_list):
+# while loop, if input == 0 end
+# append every input to a list
+
+    while True:
+        expense = int(input("Enter an expense or 0 to finish: "))
+        if expense != 0:
+            expense_list.append(expense)
+        else:
+            break
 
 # #validate the list 
 # # for loop to iterate thr list
@@ -61,7 +68,9 @@ def take_inputs():
 
 if __name__ == "__main__":
 #     #take inputs and create the list
-    take_inputs()
+    expense_list = []
+    take_inputs(expense_list)
+    print(expense_list)
 #     #Validate the list
 
 #     # categorize list
