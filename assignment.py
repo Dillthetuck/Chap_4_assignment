@@ -37,3 +37,35 @@ Sample Run:
     Moderate expenses: 1
     Large expenses: 1
 """
+
+# # take inputs
+def take_inputs():
+# #  while loop, if input == 0 end
+# # append every input to a list
+
+# #validate the list 
+# # for loop to iterate thr list
+# check for negative numbers, if negative print error message and remove from list
+# simmultaneously categorize the list into small, moderate, and large expenses
+
+# displays summary
+#     - Total count of expenses entered
+#     - Total sum of all expenses
+#     - Average expense amount
+#     - Minimum (smallest) expense
+#     - Maximum (largest) expense
+#     - Frequency count per tier (small, moderate, large)
+
+
+
+
+if __name__ == "__main__":
+#     #take inputs and create the list
+    take_inputs()
+#     #Validate the list
+
+#     # categorize list
+
+#     #displays summary
+
+
