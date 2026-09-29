@@ -58,29 +58,45 @@ def validate_list(expense_list):
     small_expenses = []
     valid_expenses = []
     for expense in expense_list:
+
+# check for negative numbers, if negative print error message and remove from list
         if expense < 0:
+            print()
             print(f'{expense} is invalid, no negative numbers')
+
+# simmultaneously categorize the list into small, moderate, and large expenses
         else:
             valid_expenses.append(expense)
             if expense > 100:
                 large_expenses.append(expense)
-            if expense > 25:
+            elif expense > 25:
                 medium_expenses.append(expense)
             else:
                 small_expenses.append(expense)
     return large_expenses, medium_expenses, small_expenses, valid_expenses
 
 
-# check for negative numbers, if negative print error message and remove from list
-# simmultaneously categorize the list into small, moderate, and large expenses
+
 
 # displays summary
+def create_summary(valid_expenses, large_expenses, medium_expenses, small_expenses):
+    print()
+    print("Expense Summary")
+    print("---------------")
 #     - Total count of expenses entered
+    print(f'Number of expenses: {len(valid_expenses)}')
 #     - Total sum of all expenses
+    print(f'Total: {len(valid_expenses)}')
 #     - Average expense amount
+    print(f'Average: ${sum(valid_expenses)/ len(valid_expenses):,.2f}')
 #     - Minimum (smallest) expense
+    print(f'Minimum: ${min(valid_expenses):,.2f}')
 #     - Maximum (largest) expense
+    print(f'Maximum: ${max(valid_expenses):,.2f}')
 #     - Frequency count per tier (small, moderate, large)
+    print(f'Small Expense count: {len(small_expenses)}')
+    print(f'Medium Expense count: {len(medium_expenses)}')
+    print(f'Large Expense count: {len(large_expenses)}')
 
 
 
@@ -91,12 +107,10 @@ if __name__ == "__main__":
     take_inputs(expense_list)
 
 #Validate the list
-    large_expenses, medium_expenses, small_expenses = validate_list(expense_list)
-    print (expense_list, large_expenses, medium_expenses, small_expenses)
-    
-
-#     # categorize list
+    large_expenses, medium_expenses, small_expenses, valid_expenses = validate_list(expense_list)
+    print (valid_expenses, large_expenses, medium_expenses, small_expenses)
 
 #     #displays summary
+    create_summary(valid_expenses, large_expenses, medium_expenses, small_expenses)
 
 
