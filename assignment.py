@@ -44,7 +44,7 @@ def take_inputs(expense_list):
 # append every input to a list
 
     while True:
-        expense = int(input("Enter an expense or 0 to finish: "))
+        expense = float(input("Enter an expense or 0 to finish: "))
         if expense != 0:
             expense_list.append(expense)
         else:
@@ -69,7 +69,7 @@ def validate_list(expense_list):
             valid_expenses.append(expense)
             if expense > 100:
                 large_expenses.append(expense)
-            elif expense > 25:
+            elif expense >= 25:
                 medium_expenses.append(expense)
             else:
                 small_expenses.append(expense)
@@ -86,7 +86,7 @@ def create_summary(valid_expenses, large_expenses, medium_expenses, small_expens
 #     - Total count of expenses entered
     print(f'Number of expenses: {len(valid_expenses)}')
 #     - Total sum of all expenses
-    print(f'Total: {len(valid_expenses)}')
+    print(f'Total: ${sum(valid_expenses):,.2f}')
 #     - Average expense amount
     print(f'Average: ${sum(valid_expenses)/ len(valid_expenses):,.2f}')
 #     - Minimum (smallest) expense
@@ -99,9 +99,7 @@ def create_summary(valid_expenses, large_expenses, medium_expenses, small_expens
     print(f'Large Expense count: {len(large_expenses)}')
 
 
-
-
-if __name__ == "__main__":
+def main():
 #take inputs and create the list
     expense_list = []
     take_inputs(expense_list)
@@ -110,7 +108,9 @@ if __name__ == "__main__":
     large_expenses, medium_expenses, small_expenses, valid_expenses = validate_list(expense_list)
     print (valid_expenses, large_expenses, medium_expenses, small_expenses)
 
-#     #displays summary
+##displays summary
     create_summary(valid_expenses, large_expenses, medium_expenses, small_expenses)
 
 
+if __name__ == "__main__":
+    main()
